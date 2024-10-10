@@ -1,3 +1,12 @@
 # SPR_OS
-Just a simple OS project to learn how they work on my free time, most code is taken online from various source like https://wiki.osdev.org/Expanded_Main_Page and http://www.osdever.net/tutorials/ as well as many videos and forum posts. This os is basically a frankenstein of code i found online.
-For SPR_OS to run you must have a x86 cross compiler set up, a quick way to do that is following the steps in https://www.youtube.com/watch?v=EpFUzjYehxs .You need to have nasm and qemu installed as well.
+#Description:# 
+A simple operating system project aimed at understanding how operating systems work during my free time. The majority of the code is sourced from various online resources, including:
+
+    OSDev Wiki: Expanded Main Page
+    OSDever Tutorials
+    Numerous videos and forum posts.
+
+This operating system is essentially a "Frankenstein" of code collected from different online materials.
+
+#Requirements:#
+To run SPR_OS, you need to set up an x86 cross-compiler. A quick guide can be found in this YouTube video. Additionally, you must have NASM and QEMU installed.
