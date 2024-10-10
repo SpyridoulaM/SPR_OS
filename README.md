@@ -6,7 +6,7 @@
 - **[OSDever Tutorials](http://www.osdever.net/tutorials/)**
 - Numerous videos and forum posts.
 
-This operating system is essentially a **"Frankenstein"** of code collected from different online materials.
+This operating system is basically a **Frankenstein** of code collected from various online resources.
 
 **Requirements**:  
 To run SPR_OS, you need to set up an x86 cross-compiler. A quick guide can be found in this **[YouTube video](https://www.youtube.com/watch?v=EpFUzjYehxs)**. Additionally, you must have **NASM** and **QEMU** installed.
