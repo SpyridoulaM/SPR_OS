@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include "libs/vga.h"
+#include "gdt/gdt.h"
 
 void kernel_main()
 {
@@ -9,6 +10,6 @@ void kernel_main()
     set_term_color(VGA_COLOR_WHITE);
     prints("Welcome to the kernel.\n");
     
-    prints_color("TEST1.\n", VGA_COLOR_GREEN);
-    prints("TEST2.\n");
+    initGdt();
+    prints_color("GDT is done.\n", VGA_COLOR_GREEN);
 }

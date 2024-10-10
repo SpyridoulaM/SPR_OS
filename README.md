@@ -10,3 +10,4 @@ This operating system is basically a **Frankenstein** of code collected from var
 
 **Requirements**:  
 To run SPR_OS, you need to set up an x86 cross-compiler and have the /i686-elf/bin directory added to path. A quick guide can be found in this **[YouTube video](https://www.youtube.com/watch?v=EpFUzjYehxs)**. Additionally, you must have **NASM** and **QEMU** installed.
+

@@ -7,14 +7,14 @@ LD = i686-elf-ld
 TARGET = SPR_OS.bin
 
 # Define the source files
-ASM_SOURCES = boot/boot.s
-C_SOURCES = kernel/kernel.c kernel/libs/vga.c
+ASM_SOURCES = boot/boot.s kernel/gdt/gdt_asm.s
+C_SOURCES = kernel/kernel.c kernel/libs/vga.c kernel/gdt/gdt.c
 OBJECTS = $(ASM_SOURCES:.s=.o) $(C_SOURCES:.c=.o)
 
 # Define compilation flags
 CFLAGS = -m32 -ffreestanding -c
 ASFLAGS = -f elf32                 # NASM flag to generate 32-bit ELF output
-LDFLAGS = -T linker.ld -o $(TARGET)
+LDFLAGS = -T linker.ld
 
 # Create the ISO output directory if it doesn't exist
 ISO_DIR = isodir
@@ -27,7 +27,7 @@ all: $(TARGET)
 
 # Linking the kernel
 $(TARGET): $(OBJECTS)
-	$(LD) $(LDFLAGS) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o $@ $(OBJECTS)
 
 # Compile assembly source files with NASM
 %.o: %.s
