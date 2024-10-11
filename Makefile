@@ -7,8 +7,8 @@ LD = i686-elf-ld
 TARGET = SPR_OS.bin
 
 # Define the source files
-ASM_SOURCES = boot/boot.s kernel/gdt/gdt_asm.s kernel/idt/idt_asm.s
-C_SOURCES = kernel/kernel.c kernel/libs/vga.c kernel/gdt/gdt.c kernel/idt/idt.c kernel/src/utils.c
+ASM_SOURCES = boot/boot.s kernel/src/gdt_asm.s kernel/src/idt_asm.s
+C_SOURCES = kernel/kernel.c kernel/src/vga.c kernel/src/gdt.c kernel/src/idt.c kernel/src/utils.c
 OBJECTS = $(ASM_SOURCES:.s=.o) $(C_SOURCES:.c=.o)
 
 # Define compilation flags

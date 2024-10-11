@@ -2,7 +2,7 @@
 #define GDT_H
 
 #include <stdint.h>
-#include "../src/utils.h"
+#include "utils.h"
 
 struct idt_entry_struct
 {

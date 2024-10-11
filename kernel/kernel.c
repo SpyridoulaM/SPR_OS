@@ -1,10 +1,9 @@
 #include <stdint.h>
 #include <stddef.h>
-#include "libs/vga.h"
-#include "gdt/gdt.h"
-#include "idt/idt.h"
+#include "src/vga.h"
+#include "src/gdt.h"
+#include "src/idt.h"
 #include "src/utils.h"
-//#include "isr/isr.h"
 
 void kernel_main()
 {
