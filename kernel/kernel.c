@@ -3,6 +3,7 @@
 #include "libs/vga.h"
 #include "gdt/gdt.h"
 #include "idt/idt.h"
+//#include "isr/isr.h"
 
 void kernel_main()
 {
