@@ -14,6 +14,6 @@ void kernel_main()
     initGdt();
     prints_color("GDT is done.\n", VGA_COLOR_GREEN);
 
-
+    initIdt();
     prints_color("IDT is done.\n", VGA_COLOR_GREEN);
 }
