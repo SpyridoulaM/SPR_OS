@@ -104,3 +104,52 @@ void prints(const char *string)
 		printc(string[i]);
 	}
 }
+
+//Integer to string
+void itoa(int num, char *str, int base)
+{
+    int i = 0;
+    int isNegative = 0;
+
+    // Handle 0 explicitly
+    if (num == 0)
+    {
+        str[i++] = '0';
+        str[i] = '\0';
+        return;
+    }
+
+    // Handle negative numbers for base 10
+    if (num < 0 && base == 10)
+    {
+        isNegative = 1;
+        num = -num;
+    }
+
+    // Process individual digits
+    while (num != 0)
+    {
+        int rem = num % base;
+        str[i++] = (rem > 9) ? (rem - 10) + 'A' : rem + '0';
+        num = num / base;
+    }
+
+    // Append negative sign for base 10
+    if (isNegative)
+        str[i++] = '-';
+
+    // Null-terminate the string
+    str[i] = '\0';
+
+    // Reverse the string
+    int start = 0;
+    int end = i - 1;
+    while (start < end)
+    {
+        char temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
+    }
+}

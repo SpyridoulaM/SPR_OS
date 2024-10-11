@@ -8,7 +8,7 @@ TARGET = SPR_OS.bin
 
 # Define the source files
 ASM_SOURCES = boot/boot.s kernel/src/gdt_asm.s kernel/src/idt_asm.s
-C_SOURCES = kernel/kernel.c kernel/src/vga.c kernel/src/gdt.c kernel/src/idt.c kernel/src/utils.c kernel/src/pit.c
+C_SOURCES = kernel/src/vga.c kernel/src/utils.c kernel/src/gdt.c kernel/src/idt.c kernel/src/pit.c kernel/drivers/keyboard.c kernel/kernel.c
 OBJECTS = $(ASM_SOURCES:.s=.o) $(C_SOURCES:.c=.o)
 
 # Define compilation flags

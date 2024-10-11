@@ -1,8 +1,4 @@
-#ifndef GTD_H
-#define GDT_H
-
 #include <stdint.h>
-#include "utils.h"
 
 struct idt_entry_struct
 {
@@ -77,5 +73,3 @@ extern void irq12();
 extern void irq13();
 extern void irq14();
 extern void irq15();
-
-#endif

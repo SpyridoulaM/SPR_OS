@@ -5,6 +5,7 @@
 #include "src/idt.h"
 #include "src/utils.h"
 #include "src/pit.h"
+#include "drivers/keyboard.h"
 
 void kernel_main()
 {
@@ -19,6 +20,7 @@ void kernel_main()
     prints_color("IDT set up.\n", VGA_COLOR_GREEN);
 
     initTimer();
+    initKeyboard();
     for (;;);
     
 }

@@ -36,4 +36,6 @@ void prints(const char *string);
 
 void prints_color(const char *string,uint8_t temp_color);
 
+void itoa(int num, char *str, int base);
+
 #endif
