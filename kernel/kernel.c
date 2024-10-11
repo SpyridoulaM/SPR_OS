@@ -4,6 +4,7 @@
 #include "src/gdt.h"
 #include "src/idt.h"
 #include "src/utils.h"
+#include "src/pit.h"
 
 void kernel_main()
 {
@@ -12,8 +13,12 @@ void kernel_main()
     prints("Welcome to the kernel.\n");
     
     initGdt();
-    prints_color("GDT is done.\n", VGA_COLOR_GREEN);
+    prints_color("GDT set up.\n", VGA_COLOR_GREEN);
 
     initIdt();
-    prints_color("IDT is done.\n", VGA_COLOR_GREEN);
+    prints_color("IDT set up.\n", VGA_COLOR_GREEN);
+
+    initTimer();
+    for (;;);
+    
 }
