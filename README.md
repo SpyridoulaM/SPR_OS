@@ -1,7 +1,7 @@
 ### SPR_OS
 
 **Description**:  
-This is a fun little project where I'm learning how operating systems work in my free time. Most of the code here is pieced together from various online resources, so it's a bit of a **Frankenstein OS**, but that's what makes it interesting! Some of the main resources I've used include:
+This is a fun little project where I'm learning how operating systems work in my free time. Most of the code here is pieced together from various online resources, so it's a bit of a **Frankenstein OS**. Some of the main resources I've used include:
 
 - **[OSDev Wiki: Expanded Main Page](https://wiki.osdev.org/Expanded_Main_Page)**
 - **[OSDever Tutorials](http://www.osdever.net/tutorials/)**
