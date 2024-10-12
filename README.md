@@ -28,7 +28,7 @@ Make sure the `/i686-elf/bin` directory is in your `PATH`.
 
 ## Running SPR_OS
 
-To run the `SPR_OS.iso`, you'll need **NASM**. Then, run the following command:
+To run the `SPR_OS.iso`, you'll need **QEMU**. Then, run the following command:
 
 ```bash
 qemu-system-i386 -cdrom SPR_OS.iso
