@@ -1,7 +1,7 @@
 # SPR_OS
 
 **Description**  
-SPR_OS is a personal project where I'm learning how operating systems work in my free time. This project is a bit of a **Frankenstein OS** as most of the code has been pulled from various online resources. The goal is to understand the intricacies of OS development while building something functional. Below are some of the main resources I've used to guide me through this process.
+SPR_OS is a personal project where I'm learning how operating systems work in my free time. This project is a bit of a **Frankenstein OS** as most of the code has been pulled from various online resources. The goal is to understand the basics of OS development while building something functional. Below are some of the main resources I've used.
 
 ### Resources
 - **[OSDev Wiki: Expanded Main Page](https://wiki.osdev.org/Expanded_Main_Page)**
