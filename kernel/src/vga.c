@@ -68,34 +68,70 @@ void scroll()
 
 void printc(char c)
 {
-	switch (c)
-	{
-	case '\n': // Newline characters should return the column to 0, and increment the row
-	{
-		term_col = 0;
-		term_row++;
-		break;
-	}
-	default: // Normal characters just get displayed and then increment the column
-	{
-		const size_t index = (VGA_COLS * term_row) + term_col; // Like before, calculate the buffer index
-		vga_buffer[index] = ((uint16_t)term_color << 8) | c;
-		term_col++;
-		break;
-	}
-	}
-	// What happens if we get past the last column? We need to reset the column to 0, and increment the row to get to a new line
-	if (term_col >= VGA_COLS) // width
-	{
-		term_col = 0;
-		term_row++;
-	}
-	// If we get past the last row
-	if (term_row >= VGA_ROWS) // height
-	{
-		scroll();
-	}
+    switch (c)
+    {
+        case '\n': // Newline characters should return the column to 0, and increment the row
+        {
+            term_col = 0;
+            term_row++;
+            break;
+        }
+        case '\r': // Carriage return: reset column to 0
+        {
+            term_col = 0;
+            break;
+        }
+        case '\b': // Backspace: move back one character
+        {
+            if (term_col > 0)
+            {
+                term_col--;
+            }
+            else if (term_row > 0) // Move up to the previous line if we're at the start of the current line
+            {
+                term_row--;
+                term_col = VGA_COLS - 1;
+            }
+
+            // Clear the character at the new position
+            const size_t index = (VGA_COLS * term_row) + term_col;
+            vga_buffer[index] = ((uint16_t)term_color << 8) | ' ';
+            break;
+        }
+        case '\t': // Tab: insert spaces until we reach the next multiple of 4
+        {
+            const int tab_size = 4;
+            int spaces_to_next_tab_stop = tab_size - (term_col % tab_size);
+            while (spaces_to_next_tab_stop > 0)
+            {
+                printc(' '); // Insert space characters
+                spaces_to_next_tab_stop--;
+            }
+            break;
+        }
+        default: // Normal characters just get displayed and then increment the column
+        {
+            const size_t index = (VGA_COLS * term_row) + term_col; // Like before, calculate the buffer index
+            vga_buffer[index] = ((uint16_t)term_color << 8) | c;
+            term_col++;
+            break;
+        }
+    }
+
+    // Handle the end of the line (move to the next row if the column exceeds the width)
+    if (term_col >= VGA_COLS)
+    {
+        term_col = 0;
+        term_row++;
+    }
+
+    // Handle scrolling if we exceed the screen height
+    if (term_row >= VGA_ROWS)
+    {
+        scroll();
+    }
 }
+
 
 void prints(const char *string)
 {
