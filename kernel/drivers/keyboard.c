@@ -76,47 +76,42 @@ void keyboardHandler(struct InterruptRegisters *regs) {
     uint8_t scanCode = inPortB(0x60) & 0x7F; // Get scan code
     uint8_t press = inPortB(0x60) & 0x80;    // Get press/release status
 
-    // Handle special keys
-    if (press == 0) {
+    if (press == 0) {  // Key press
         switch (scanCode) {
-            case 1:
-                prints("ESC\n");
+            case 28: //Enter
+                prints("\n");
                 break;
-            case 29:
-                prints("CTRL\n");
-                break;
-            case 56:
-                prints("ALT\n");
-                break;
-            case 42:
-            case 54:
-                prints("Shift\n");
-                capsOn = 1; // Handle shift key
+            case 42: // Left Shift
+            case 54: // Right Shift
+                capsOn = 1; // Handle shift key press
                 break;
             case 58:
                 if (!capsLock) {
                     capsLock = 1;
-                    prints("CapsLock ON\n");
                 } else {
                     capsLock = 0;
-                    prints("CapsLock OFF\n");
                 }
                 break;
             default:
-                // Handle printable characters
-                char keyString[2]; // Buffer to hold the character and a null terminator
-                keyString[1] = '\0'; // Null-terminate the string
-
+                // Handle other keys as normal
+                char keyString[2];
+                keyString[1] = '\0';
                 if (capsOn || capsLock) {
-                    // For uppercase letters or caps lock
                     keyString[0] = (char)uppercase[scanCode];
                 } else {
-                    // For lowercase letters
                     keyString[0] = (char)lowercase[scanCode];
                 }
-                // Print the character string
                 prints(keyString);
-                prints("\n");
+                break;
+        }
+    } else {  // Key release
+        switch (scanCode) {
+            case 42: // Left Shift released
+            case 54: // Right Shift released
+                capsOn = 0; // Reset shift on key release
+                break;
+            default:
+                // You can handle other key releases here if needed
                 break;
         }
     }
