@@ -20,7 +20,10 @@ void kernel_main()
     prints_color("IDT set up.\n", VGA_COLOR_GREEN);
 
     initTimer();
+    prints_color("Timer set up.\n", VGA_COLOR_GREEN);
+
     initKeyboard();
+    prints_color("Keyboard set up.\n", VGA_COLOR_GREEN);
     for (;;);
     
 }
