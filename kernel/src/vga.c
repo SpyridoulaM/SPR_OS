@@ -83,19 +83,32 @@ void printc(char c)
         }
         case '\b': // Backspace: move back one character
         {
+            // Check if we're at the start of a line
             if (term_col > 0)
             {
-                term_col--;
+                term_col--; // Move back one character in the current line
             }
-            else if (term_row > 0) // Move up to the previous line if we're at the start of the current line
+            else if (term_row > 0) // If at the beginning of a line, move to the end of the previous line
             {
-                term_row--;
-                term_col = VGA_COLS - 1;
-            }
+                term_row--; // Move to the previous row
+                term_col = VGA_COLS - 1; // Set column to the last column in that row
 
+                // Now check for trailing spaces and move the cursor to the last non-space character
+                while (term_col > 0)
+                {
+                    const size_t index = (VGA_COLS * term_row) + term_col;
+                    char tmp = (char)(vga_buffer[index] & 0xFF); // Get the character part (lower 8 bits)
+            
+                    if (tmp != ' ') // If not a space, we've found the last non-space character
+                    break;
+            
+                    term_col--; // Otherwise, keep moving back
+                }
+            }
+        
             // Clear the character at the new position
             const size_t index = (VGA_COLS * term_row) + term_col;
-            vga_buffer[index] = ((uint16_t)term_color << 8) | ' ';
+            vga_buffer[index] = ((uint16_t)term_color << 8) | ' '; // Replace the character with a space
             break;
         }
         case '\t': // Tab: insert spaces until we reach the next multiple of 4
