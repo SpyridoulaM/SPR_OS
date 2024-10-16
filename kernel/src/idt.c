@@ -136,8 +136,8 @@ unsigned char* exception_messages[] = {
 
 void isr_handler(struct InterruptRegisters* regs){
     if (regs->int_no < 32){
+        prints_color("Exception! System Halted:",VGA_COLOR_RED);
         prints_color(exception_messages[regs->int_no],VGA_COLOR_RED);
-        prints("\nException! System Halted\n");
         for (;;);
     }
 }

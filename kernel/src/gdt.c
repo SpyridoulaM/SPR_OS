@@ -15,7 +15,12 @@ void initGdt()
     setGdtGate(2,0,0xFFFFFFFF,0x92,0xCF);//kernel data segment 
     setGdtGate(3,0,0xFFFFFFFF,0xFA,0xCF);//user code segment 
     setGdtGate(4,0,0xFFFFFFFF,0xF2,0xCF);//user data segment 
-
+    /*TODO Task State Segment
+    Base = &TSS
+    Limit = sizeof(TSS)-1
+    Access Byte = 0x89
+    Flags = 0x0
+    */
     gdt_flush(&gdt_ptr);
 }
 
