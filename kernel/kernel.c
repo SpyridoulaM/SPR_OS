@@ -24,7 +24,6 @@ void kernel_main()
 
     initKeyboard();
     prints_color("Keyboard set up.\n", VGA_COLOR_GREEN);
-    int x=1/0;
     for (;;);
     
 }
