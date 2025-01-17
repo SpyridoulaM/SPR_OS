@@ -23,10 +23,16 @@ qemu-system-i386 -cdrom SPR_OS.iso
 ```
 ## Building SPR_OS
 
-To build **SPR_OS**, you'll need:
+To build **SPR_OS**, you'll need the following tools:
 
-- An **x86 cross-compiler** (you can follow [this guide](https://www.youtube.com/watch?v=EpFUzjYehxs) to set it up)
+- **x86 cross-compiler** (you can follow [this guide](https://www.youtube.com/watch?v=EpFUzjYehxs) to set it up)
 - **NASM** (assembler)
 - **QEMU** (emulator)
 
-Make sure the `/i686-elf/bin` directory is in your `PATH`.
+Make sure that the `/i686-elf/bin` directory is included in your `PATH`.
+
+Once you have the required tools set up, you can build the OS and run it immediately with the following command:
+
+```bash
+make rc
+```
