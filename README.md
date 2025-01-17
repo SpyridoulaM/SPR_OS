@@ -14,7 +14,14 @@ SPR_OS is a project where I'm teaching myself the basics of operating system dev
 
 ---
 
-## Requirements
+## Running SPR_OS
+
+To run the `SPR_OS.iso`, you'll need **QEMU**. You can run the operating system without building it yourself by using the following command:
+
+```bash
+qemu-system-i386 -cdrom SPR_OS.iso
+```
+## Building SPR_OS
 
 To build **SPR_OS**, you'll need:
 
@@ -23,12 +30,3 @@ To build **SPR_OS**, you'll need:
 - **QEMU** (emulator)
 
 Make sure the `/i686-elf/bin` directory is in your `PATH`.
-
----
-
-## Running SPR_OS
-
-To run the `SPR_OS.iso`, you'll need **QEMU**. Then, run the following command:
-
-```bash
-qemu-system-i386 -cdrom SPR_OS.iso
