@@ -1,9 +1,9 @@
 # SPR_OS
 
 **Overview**  
-SPR_OS is a project where I'm teaching myself the basics of operating system development. It's a bit of a **Frankenstein OS**—pieced together from various online tutorials and resources. Below are some of the key references that helped me along the way:
+SPR_OS is a self-constructed operating system designed to teach the fundamentals of OS development. It is built using various tutorials and resources, forming a **Frankenstein OS** by combining different learning materials.
 
-### Resources
+### Key Resources:
 - **[OSDev Wiki: Expanded Main Page](https://wiki.osdev.org/Expanded_Main_Page)**
 - **[OSDever Tutorials](http://www.osdever.net/tutorials/)**
 
@@ -16,7 +16,7 @@ SPR_OS is a project where I'm teaching myself the basics of operating system dev
 
 ## Running SPR_OS
 
-To run the `SPR_OS.iso`, you'll need **QEMU**. You can run the operating system without building it yourself by using the following command:
+To run `SPR_OS.iso`, you'll need **QEMU**. You can launch the OS using the following command:
 
 ```bash
 qemu-system-i386 -cdrom SPR_OS.iso
