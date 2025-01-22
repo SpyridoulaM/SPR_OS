@@ -36,3 +36,15 @@ Once you have the required tools set up, you can build the OS and run it immedia
 ```bash
 make rc
 ```
+## What I've Done
+
+So far, I've implemented the following features in SPR_OS:
+
+- **Bootloader**: A simple bootloader written in assembly that works with GRUB.
+- **Keyboard Input Driver**: A basic driver to handle keyboard input.
+- **GDT and IDT Tables**: Implemented the Global Descriptor Table (GDT) and Interrupt Descriptor Table (IDT).
+- **ISR Routine Handling**: Set up interrupt service routines for handling interrupts.
+- **PIT Timer**: Configured the Programmable Interval Timer (PIT) for time-based operations.
+- **VGA Driver**: A simple VGA driver that writes directly to memory and supports color.
+- **Text Input**: Implemented a text input feature that allows typing on the screen. Additionally, backspace now removes a full line if the line is empty.
+
