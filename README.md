@@ -14,21 +14,25 @@ SPR_OS is a project where I'm teaching myself the basics of operating system dev
 
 ---
 
-## Requirements
-
-To build **SPR_OS**, you'll need:
-
-- An **x86 cross-compiler** (you can follow [this guide](https://www.youtube.com/watch?v=EpFUzjYehxs) to set it up)
-- **NASM** (assembler)
-- **QEMU** (emulator)
-
-Make sure the `/i686-elf/bin` directory is in your `PATH`.
-
----
-
 ## Running SPR_OS
 
-To run the `SPR_OS.iso`, you'll need **QEMU**. Then, run the following command:
+To run the `SPR_OS.iso`, you'll need **QEMU**. You can run the operating system without building it yourself by using the following command:
 
 ```bash
 qemu-system-i386 -cdrom SPR_OS.iso
+```
+## Building SPR_OS
+
+To build **SPR_OS**, you'll need the following tools:
+
+- **x86 cross-compiler** (you can follow [this guide](https://www.youtube.com/watch?v=EpFUzjYehxs) to set it up)
+- **NASM** (assembler)
+- **QEMU** (emulator)
+
+Make sure that the `/i686-elf/bin` directory is included in your `PATH`.
+
+Once you have the required tools set up, you can build the OS and run it immediately with the following command:
+
+```bash
+make rc
+```
